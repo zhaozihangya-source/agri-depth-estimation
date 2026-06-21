@@ -1,5 +1,11 @@
 # Agri Depth Estimation — 农业场景单目深度感知
 
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-MPS-EE4C2C?logo=pytorch&logoColor=white)
+![Depth Anything V2](https://img.shields.io/badge/Depth_Anything-V2-1877F2)
+![Transformers](https://img.shields.io/badge/%F0%9F%A4%97-Transformers-FFD21E)
+![License](https://img.shields.io/badge/License-MIT-3DA639)
+
 > Monocular **depth estimation** on real chestnut-orchard field photos using
 > **Depth Anything V2 (Small)**, for canopy / crop depth perception in
 > agri-robotics scenarios. Single RGB photo → dense depth map.
