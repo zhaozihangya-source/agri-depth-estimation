@@ -25,6 +25,22 @@ Branch structure is cleanly resolved and the near→far ground gradient is corre
 useful as a depth cue for canopy distance / obstacle sensing on field robots.
 树枝结构清晰、地面近远梯度正确，可作为田间机器人的树冠距离/避障深度线索。
 
+## Evidence status / 当前证据状态
+
+This project demonstrates **relative monocular depth cues**, not metric distance or a
+finished obstacle-avoidance system.
+
+| Item | Current status | Notes |
+|---|---|---|
+| Public field demos | Included | 3 own-shot chestnut-orchard examples in `assets/`. |
+| Dense relative depth maps | Included | Demo images show near/far structure and canopy/ground gradients. |
+| Metric distance calibration | Not done | No scale ruler, camera calibration, or ground-truth depth is included yet. |
+| Robot obstacle-avoidance integration | Not done | This is a perception cue, not a complete navigation stack. |
+| Failure-case taxonomy | Started | See `docs/depth_validation_notes.md`. |
+
+See [`docs/depth_validation_notes.md`](docs/depth_validation_notes.md) for failure modes,
+validation limits, and next steps.
+
 ## Why / 应用背景
 
 Agri-robots (drones, ground rovers) need depth perception but stereo/LiDAR rigs are
@@ -41,6 +57,13 @@ RGB photo → Depth Anything V2 (ViT-S encoder, DPT head) → relative depth map
 ```
 
 Runs on Apple Silicon (MPS). 本地 MPS 推理。
+
+## Limitations and next steps / 局限与下一步
+
+- Monocular depth is **relative depth** unless scale calibration is added. 单目深度默认是相对深度，不是直接可用的米级距离。
+- Next step: use a ruler / known tree-row distance / camera pose to calibrate scale. 下一步用标尺、已知树距或相机位姿做尺度校准。
+- Next step: combine depth maps with detector boxes to rank targets by near/far order. 可和检测框结合，输出目标远近排序。
+- Next step: log failure cases under overexposure, shadow, dense branches, and low-texture ground. 需要记录过曝、阴影、枝条密集、低纹理地面等失败案例。
 
 ## Tech stack
 
